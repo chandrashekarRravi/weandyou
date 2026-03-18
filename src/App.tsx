@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'motion/react';
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { 
-  Rocket, Briefcase, ShoppingCart, MapPin, User, Settings, 
-  ChevronDown, Instagram, Linkedin, Youtube, Twitter, 
-  ArrowRight, CheckCircle2, Zap, BarChart3, Layers, 
+import {
+  Rocket, Briefcase, ShoppingCart, MapPin, User, Settings,
+  ChevronDown, Instagram, Linkedin, Youtube, Twitter,
+  ArrowRight, CheckCircle2, Zap, BarChart3, Layers,
   Camera, Code, Globe, MessageSquare, Menu, X,
   Plus, Minus
 } from 'lucide-react';
@@ -37,19 +37,19 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-display font-bold tracking-tighter">
           WE<span className="text-brand-primary">&</span>YOU
         </Link>
-        
+
         <div className="hidden md:flex gap-8 items-center">
           {['Services', 'About', 'Process', 'FAQ'].map((item) => (
-            <a 
-              key={item} 
-              href={`/#${item.toLowerCase()}`} 
+            <a
+              key={item}
+              href={`/#${item.toLowerCase()}`}
               onClick={(e) => handleNavClick(e, item.toLowerCase())}
               className="text-sm font-medium hover:text-brand-primary transition-colors"
             >
               {item}
             </a>
           ))}
-          <Link 
+          <Link
             to="/start"
             className="bg-brand-primary text-black px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform"
           >
@@ -64,16 +64,16 @@ const Navbar = () => {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-brand-dark border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
           >
             {['Services', 'About', 'Process', 'FAQ'].map((item) => (
-              <a 
-                key={item} 
-                href={`/#${item.toLowerCase()}`} 
+              <a
+                key={item}
+                href={`/#${item.toLowerCase()}`}
                 className="text-lg font-medium"
                 onClick={(e) => {
                   handleNavClick(e, item.toLowerCase());
@@ -83,7 +83,7 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
-            <Link 
+            <Link
               to="/start"
               onClick={() => setIsMobileMenuOpen(false)}
               className="bg-brand-primary text-black px-6 py-3 rounded-xl text-lg font-bold text-center"
@@ -110,22 +110,22 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 text-center mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-8xl font-display font-bold leading-[1.1] tracking-tight mb-8">
+          <h1 className="text-5xl md:text-8xl font-display font-bold leading-[1.1] tracking-tight mb-10 mt-20">
             Making Your Brand <br />
             <span className="text-brand-primary">Visible, Valuable, and Viral</span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
             WE&You helps businesses grow by building strong digital visibility. We combine digital marketing, creative storytelling, and modern technology to help brands reach the right audience, increase awareness, and drive measurable online growth.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link 
+            <Link
               to="/start"
               className="bg-brand-primary text-black px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform flex items-center gap-2 group"
             >
@@ -140,7 +140,7 @@ const Hero = () => {
       </div>
 
       {/* Dashboard Preview Element */}
-      
+
     </section>
   );
 };
@@ -166,9 +166,9 @@ const About = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" 
-                alt="Our Team" 
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                alt="Our Team"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -288,7 +288,7 @@ const Services = () => {
   ];
 
   const getIcon = (icon: string) => {
-    switch(icon) {
+    switch (icon) {
       case 'layers': return <Layers className="w-8 h-8" />;
       case 'bar-chart': return <BarChart3 className="w-8 h-8" />;
       case 'camera': return <Camera className="w-8 h-8" />;
@@ -327,7 +327,7 @@ const Services = () => {
               <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-2">{service.category}</div>
               <h3 className="text-2xl font-display font-bold mb-4">{service.title}</h3>
               <p className="text-white/60 leading-relaxed">{service.description}</p>
-              
+
               <div className="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer">
                 Learn More <ArrowRight className="w-4 h-4" />
               </div>
@@ -351,11 +351,11 @@ const Process = () => {
     <section id="process" className="py-24 bg-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-6xl font-display font-bold mb-16 text-center">Our <span className="text-brand-primary">Process.</span></h2>
-        
+
         <div className="relative">
           {/* Timeline Line */}
           <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 hidden lg:block" />
-          
+
           <div className="grid lg:grid-cols-4 gap-12 relative">
             {steps.map((step, i) => (
               <motion.div
@@ -440,7 +440,7 @@ const SocialProof = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-24 max-w-4xl mx-auto">
           <div className="text-center italic text-2xl md:text-3xl font-display font-medium leading-relaxed">
             “WE&You transformed our digital presence in 3 months. Our lead flow tripled.”
@@ -448,8 +448,8 @@ const SocialProof = () => {
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="w-12 h-12 bg-black/10 rounded-full" />
             <div className="text-left">
-              <div className="font-bold">John Smith</div>
-              <div className="text-sm opacity-60">CEO, TechFlow</div>
+              <div className="font-bold">WeYou</div>
+              <div className="text-sm opacity-60">CEO, WE&YOU</div>
             </div>
           </div>
         </div>
@@ -460,30 +460,30 @@ const SocialProof = () => {
 
 const StartProject = () => {
   const steps = [
-    { 
-      icon: <MessageSquare className="w-6 h-6" />, 
-      title: 'Share Your Idea', 
-      desc: 'Explain your project vision and goals to us.' 
+    {
+      icon: <MessageSquare className="w-6 h-6" />,
+      title: 'Share Your Idea',
+      desc: 'Explain your project vision and goals to us.'
     },
-    { 
-      icon: <User className="w-6 h-6" />, 
-      title: 'Free Consultation', 
-      desc: 'Our team analyzes your specific requirements.' 
+    {
+      icon: <User className="w-6 h-6" />,
+      title: 'Free Consultation',
+      desc: 'Our team analyzes your specific requirements.'
     },
-    { 
-      icon: <Layers className="w-6 h-6" />, 
-      title: 'Project Planning', 
-      desc: 'We define scope, timeline, and growth strategy.' 
+    {
+      icon: <Layers className="w-6 h-6" />,
+      title: 'Project Planning',
+      desc: 'We define scope, timeline, and growth strategy.'
     },
-    { 
-      icon: <Code className="w-6 h-6" />, 
-      title: 'Development', 
-      desc: 'We build your solution with regular progress updates.' 
+    {
+      icon: <Code className="w-6 h-6" />,
+      title: 'Development',
+      desc: 'We build your solution with regular progress updates.'
     },
-    { 
-      icon: <Rocket className="w-6 h-6" />, 
-      title: 'Launch & Support', 
-      desc: 'Seamless deployment and ongoing technical support.' 
+    {
+      icon: <Rocket className="w-6 h-6" />,
+      title: 'Launch & Support',
+      desc: 'Seamless deployment and ongoing technical support.'
     },
   ];
 
@@ -496,7 +496,7 @@ const StartProject = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     // Cal.com Embed Implementation using namespace pattern
     (function (C: any, A: string, L: string) {
       let p = function (a: any, ar: any) { a.q.push(ar); };
@@ -528,38 +528,22 @@ const StartProject = () => {
     })(window, "https://app.cal.com/embed/embed.js", "Cal");
   }, []);
 
-  const handleBooking = () => {
-    // @ts-ignore
-    const Cal = window.Cal;
-    if (Cal && Cal.ns && Cal.ns["discoverycall"]) {
-      Cal.ns["discoverycall"]("modal", {
-        calLink: "we-you.in/discoverycall",
-        config: { layout: "month_view" },
-      });
-    } else if (Cal) {
-      // Fallback: direct modal open
-      Cal("modal", {
-        calLink: "we-you.in/discoverycall",
-        config: { layout: "month_view" },
-      });
-    }
-  };
 
   return (
     <div className="min-h-screen bg-brand-dark pt-32 pb-32 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-7xl font-display font-bold mb-6"
           >
             Start Your Project With <span className="text-brand-primary">WE&You</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -598,8 +582,7 @@ const StartProject = () => {
             <div className="space-y-12 mb-16">
               <div className="flex flex-col items-center gap-6">
                 <h2 className="text-3xl font-display font-bold">Ready to take the next step?</h2>
-                <button 
-                  onClick={handleBooking}
+                <button
                   data-cal-link="we-you.in/discoverycall"
                   data-cal-namespace="discoverycall"
                   data-cal-config='{"layout":"month_view"}'
@@ -609,7 +592,7 @@ const StartProject = () => {
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-              
+
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {trustElements.map((text, i) => (
                   <div key={i} className="flex items-center gap-3 text-white/60">
@@ -639,17 +622,17 @@ const StartProject = () => {
 
 const FAQSection = () => {
   const faqs: FAQ[] = [
-    { 
-      question: 'Do you work with startups?', 
-      answer: 'Yes, we help startups build strong digital presence and marketing strategies.' 
+    {
+      question: 'Do you work with startups?',
+      answer: 'Yes, we help startups build strong digital presence and marketing strategies.'
     },
-    { 
-      question: 'Do you provide website development?', 
-      answer: 'Yes, we design and develop modern business websites and apps.' 
+    {
+      question: 'Do you provide website development?',
+      answer: 'Yes, we design and develop modern business websites and apps.'
     },
-    { 
-      question: 'How long does a marketing campaign take?', 
-      answer: 'Campaign timelines depend on goals, strategy, and platform.' 
+    {
+      question: 'How long does a marketing campaign take?',
+      answer: 'Campaign timelines depend on goals, strategy, and platform.'
     },
     {
       question: 'Do you provide ongoing support?',
@@ -663,7 +646,7 @@ const FAQSection = () => {
     <section id="faq" className="py-32 bg-brand-dark text-white">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-20">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -671,7 +654,7 @@ const FAQSection = () => {
           >
             Frequently Asked <span className="text-brand-primary">Questions</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -685,24 +668,22 @@ const FAQSection = () => {
         <div className="space-y-6">
           {faqs.map((faq, i) => (
             <div key={i} className="group">
-              <button 
+              <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className={`w-full p-6 flex items-center gap-6 text-left transition-all duration-500 rounded-[2.5rem] border ${
-                  openIndex === i 
-                    ? 'bg-white/10 border-brand-primary/30 shadow-[0_20px_50px_rgba(0,255,0,0.05)]' 
-                    : 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/10'
-                }`}
+                className={`w-full p-6 flex items-center gap-6 text-left transition-all duration-500 rounded-[2.5rem] border ${openIndex === i
+                  ? 'bg-white/10 border-brand-primary/30 shadow-[0_20px_50px_rgba(0,255,0,0.05)]'
+                  : 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/10'
+                  }`}
               >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${
-                  openIndex === i ? 'bg-brand-primary text-black rotate-180' : 'bg-white/5 text-white/40'
-                }`}>
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === i ? 'bg-brand-primary text-black rotate-180' : 'bg-white/5 text-white/40'
+                  }`}>
                   {openIndex === i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
                 <span className={`text-lg font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
                   {faq.question}
                 </span>
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === i && (
                   <motion.div
@@ -713,7 +694,7 @@ const FAQSection = () => {
                     className="overflow-hidden"
                   >
                     <div className="pt-4 px-6 pb-2">
-                      <motion.div 
+                      <motion.div
                         initial={{ y: -20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.1 }}
@@ -744,21 +725,21 @@ const Footer = () => {
               <span className="text-brand-primary">Brand Together</span>
             </h2>
             <p className="text-white/60 mb-8 text-lg">Ready to grow your business online? Connect with WE&You today.</p>
-            <Link 
+            <Link
               to="/start"
               className="bg-brand-primary text-black px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform inline-block"
             >
               Start Your Project
             </Link>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 gap-12">
             <div>
               <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Contact</h4>
               <div className="space-y-4 text-lg">
-                <a href="mailto:hello@youragency.com" className="block hover:text-brand-primary transition-colors">hello@youragency.com</a>
+                <a href="mailto:hello@youragency.com" className="block hover:text-brand-primary transition-colors">hello@weandyoumarketing.com</a>
                 <a href="tel:+910000000000" className="block hover:text-brand-primary transition-colors">+91 XXXXX XXXXX</a>
-                <p className="text-white/60">www.youragency.com</p>
+                <p className="text-white/60">www.weandyoumarketing.com</p>
               </div>
             </div>
             <div>
@@ -770,7 +751,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-              <div className="mt-4 text-white/60 text-sm">@youragencyname</div>
+              <div className="mt-4 text-white/60 text-sm">@We&You</div>
             </div>
           </div>
         </div>
@@ -779,13 +760,13 @@ const Footer = () => {
           <div className="text-2xl font-display font-bold tracking-tighter">
             WE<span className="text-brand-primary">&</span>YOU
           </div>
-          
+
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="text-sm text-white/40">Get digital growth tips in your inbox.</div>
             <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email Address" 
+              <input
+                type="email"
+                placeholder="Email Address"
                 className="bg-white/5 border border-white/10 rounded-full px-6 py-2 text-sm focus:outline-none focus:border-brand-primary transition-colors"
               />
               <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-brand-primary transition-colors">
@@ -794,7 +775,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-12 text-center text-xs text-white/20">
           © {new Date().getFullYear()} WE&You Digital Agency. All rights reserved.
         </div>
