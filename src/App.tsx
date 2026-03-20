@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'mot
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Rocket, Briefcase, ShoppingCart, MapPin, User, Settings,
-  ChevronDown, Instagram, Linkedin, Youtube, Twitter,
+  ChevronDown, Instagram, Linkedin, Youtube, Twitter, AtSign,
   ArrowRight, CheckCircle2, Zap, BarChart3, Layers,
   Camera, Code, Globe, MessageSquare, Menu, X,
   Plus, Minus
@@ -34,8 +34,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-dark/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-display font-bold tracking-tighter">
-          WE<span className="text-brand-primary">&</span>YOU
+        <Link to="/" className="flex items-center -ml-2 -my-12 md:-ml-4 md:-my-19">
+          <img src="/WE&YOU-LOGO.png" alt="WE&YOU" className="w-[140px] md:w-[200px] h-auto object-contain max-w-none" />
         </Link>
 
         <div className="hidden md:flex gap-8 items-center">
@@ -426,9 +426,9 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="py-24 bg-brand-primary text-black">
+    <section className="py-14 bg-brand-primary text-black">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+        {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {achievements.map((a, i) => (
             <div key={i}>
               <div className="text-5xl md:text-7xl font-display font-bold mb-2">
@@ -439,17 +439,21 @@ const SocialProof = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <div className="mt-24 max-w-4xl mx-auto">
+        <div className="mt-6 max-w-4xl mx-auto">
           <div className="text-center italic text-2xl md:text-3xl font-display font-medium leading-relaxed">
             “WE&You transformed our digital presence in 3 months. Our lead flow tripled.”
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <div className="w-12 h-12 bg-black/10 rounded-full" />
+            <img
+              src="/CREW.png"
+              alt="WE&YOU Team"
+              className="w-12 h-12 rounded-full object-cover bg-brand-dark/10 p-1"
+            />
             <div className="text-left">
-              <div className="font-bold">WeYou</div>
-              <div className="text-sm opacity-60">CEO, WE&YOU</div>
+              {/* <div className="font-bold"></div> */}
+              <div className="text-lg opacity-60">#Incredible13</div>
             </div>
           </div>
         </div>
@@ -521,7 +525,7 @@ const StartProject = () => {
 
       C[L]("init", "discoverycall", { origin: "https://cal.com" });
       C[L]("ui", "discoverycall", {
-        styles: { branding: { brandColor: "#00ff00" } },
+        styles: { branding: { brandColor: "#D1E013" } },
         hideEventTypeDetails: false,
         layout: "month_view",
       });
@@ -583,10 +587,10 @@ const StartProject = () => {
               <div className="flex flex-col items-center gap-6">
                 <h2 className="text-3xl font-display font-bold">Ready to take the next step?</h2>
                 <button
-                  data-cal-link="we-you.in/discoverycall"
+                  data-cal-link="weandyoumarketing/joinus"
                   data-cal-namespace="discoverycall"
                   data-cal-config='{"layout":"month_view"}'
-                  className="bg-brand-primary text-black px-12 py-6 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-[0_20px_40px_rgba(0,255,0,0.2)] flex items-center gap-3 group"
+                  className="bg-brand-primary text-black px-12 py-6 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-[0_20px_40px_rgba(209,224,19,0.2)] flex items-center gap-3 group"
                 >
                   Book Free Consultation
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -671,7 +675,7 @@ const FAQSection = () => {
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className={`w-full p-6 flex items-center gap-6 text-left transition-all duration-500 rounded-[2.5rem] border ${openIndex === i
-                  ? 'bg-white/10 border-brand-primary/30 shadow-[0_20px_50px_rgba(0,255,0,0.05)]'
+                  ? 'bg-white/10 border-brand-primary/30 shadow-[0_20px_50px_rgba(209,224,19,0.05)]'
                   : 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/10'
                   }`}
               >
@@ -736,30 +740,42 @@ const Footer = () => {
           <div className="grid sm:grid-cols-2 gap-12">
             <div>
               <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Contact</h4>
-              <div className="space-y-4 text-lg">
-                <a href="mailto:hello@youragency.com" className="block hover:text-brand-primary transition-colors">hello@weandyoumarketing.com</a>
-                <a href="tel:+910000000000" className="block hover:text-brand-primary transition-colors">+91 XXXXX XXXXX</a>
-                <p className="text-white/60">www.weandyoumarketing.com</p>
+              <div className="space-y-4 text-sm">
+                <a href="mailto:info@weandyoumarketing.com" className="block hover:text-brand-primary transition-colors">info@weandyoumarketing.com</a>
+                <a href="tel:+916364944289" className="block hover:text-brand-primary transition-colors">+91 6364944289</a>
+                <a href="tel:+916364944290" className="block hover:text-brand-primary transition-colors">+91 6364944290</a>
+
+                {/* <p className="text-white/60">www.weandyoumarketing.com</p> */}
               </div>
             </div>
             <div>
               <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Follow Us</h4>
               <div className="flex gap-4">
-                {[Instagram, Linkedin, Youtube, Twitter].map((Icon, i) => (
-                  <a key={i} href="#" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-brand-primary hover:text-black transition-all">
+                {[
+                  { Icon: Instagram, link: 'https://www.instagram.com/weandyou.marketing?igsh=MXJ2YW9nYzJ0ZWE4NA%3D%3D&utm_source=qr' },
+                  { Icon: AtSign, link: 'https://www.threads.com/@weandyou.marketing?igshid=NTc4MTIwNjQ2YQ==' },
+                  { Icon: Twitter, link: 'https://x.com/weyoumarketing?s=21' }
+                ].map(({ Icon, link }, i) => (
+                  <a
+                    key={i}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-brand-primary hover:text-black transition-all"
+                  >
                     <Icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
-              <div className="mt-4 text-white/60 text-sm">@We&You</div>
+              <div className="mt-4 text-white/60 text-sm">#Incredible13</div>
             </div>
           </div>
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-2xl font-display font-bold tracking-tighter">
-            WE<span className="text-brand-primary">&</span>YOU
-          </div>
+          <Link to="/" className="flex items-center -ml-2 -my-8 md:-ml-4 md:-my-12">
+            <img src="/WE&YOU-LOGO.png" alt="WE&YOU" className="w-[160px] md:w-[220px] h-auto object-contain max-w-none" />
+          </Link>
 
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="text-sm text-white/40">Get digital growth tips in your inbox.</div>
