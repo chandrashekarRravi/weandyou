@@ -32,34 +32,52 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-dark/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center -ml-2 -my-12 md:-ml-4 md:-my-19">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-8'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative w-full">
+        {/* Logo Output Left */}
+        <Link to="/" className="flex items-center -ml-2 -my-12 md:-ml-4 md:-my-19 z-10">
           <img src="/WE&YOU-LOGO.png" alt="WE&YOU" className="w-[140px] md:w-[200px] h-auto object-contain max-w-none" />
         </Link>
 
-        <div className="hidden md:flex gap-8 items-center">
-          {['Services', 'About', 'Process', 'FAQ'].map((item) => (
+        {/* Nav Links Centered (Icon Hover Effect) */}
+        <div className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2 pointer-events-auto bg-white/5 border border-white/10 px-8 py-3 rounded-full backdrop-blur-md shadow-lg">
+          {[
+            { name: 'Services', icon: Layers },
+            { name: 'About', icon: User },
+            { name: 'Process', icon: BarChart3 },
+            { name: 'FAQ', icon: MessageSquare }
+          ].map(({ name, icon: Icon }) => (
             <a
-              key={item}
-              href={`/#${item.toLowerCase()}`}
-              onClick={(e) => handleNavClick(e, item.toLowerCase())}
-              className="text-sm font-medium hover:text-brand-primary transition-colors"
+              key={name}
+              href={`/#${name.toLowerCase()}`}
+              onClick={(e) => handleNavClick(e, name.toLowerCase())}
+              className="group flex items-center px-2 py-2 text-white/60 hover:text-brand-primary transition-colors duration-300"
             >
-              {item}
+              <Icon className="w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+              <div className="grid grid-cols-[0fr] group-hover:grid-cols-[1fr] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]">
+                <div className="overflow-hidden">
+                  <span className="pl-2 block whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm font-bold tracking-wide">
+                    {name}
+                  </span>
+                </div>
+              </div>
             </a>
           ))}
+        </div>
+
+        {/* Action Button & Mobile Nav Right */}
+        <div className="flex items-center gap-4 z-10">
           <Link
             to="/start"
-            className="bg-brand-primary text-black px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform"
+            className="hidden md:flex bg-brand-primary text-black px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform"
           >
             Start Your Project
           </Link>
+          
+          <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
-
-        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
       </div>
 
       <AnimatePresence>
@@ -70,17 +88,23 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-brand-dark border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
           >
-            {['Services', 'About', 'Process', 'FAQ'].map((item) => (
+            {[
+              { name: 'Services', icon: Layers },
+              { name: 'About', icon: User },
+              { name: 'Process', icon: BarChart3 },
+              { name: 'FAQ', icon: MessageSquare }
+            ].map(({ name, icon: Icon }) => (
               <a
-                key={item}
-                href={`/#${item.toLowerCase()}`}
-                className="text-lg font-medium"
+                key={name}
+                href={`/#${name.toLowerCase()}`}
+                className="flex items-center gap-3 text-lg font-medium text-white/80 hover:text-brand-primary transition-colors"
                 onClick={(e) => {
-                  handleNavClick(e, item.toLowerCase());
+                  handleNavClick(e, name.toLowerCase());
                   setIsMobileMenuOpen(false);
                 }}
               >
-                {item}
+                <Icon className="w-5 h-5" />
+                {name}
               </a>
             ))}
             <Link
