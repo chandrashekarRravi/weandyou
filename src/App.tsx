@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-8'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#113d67]/80 backdrop-blur-xl border-full border-white/2 py-4 shadow-lg' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative w-full">
         {/* Logo Output Left */}
         <Link to="/" className="flex items-center -ml-2 -my-12 md:-ml-4 md:-my-19 z-10">
@@ -40,7 +40,7 @@ const Navbar = () => {
         </Link>
 
         {/* Nav Links Centered (Icon Hover Effect) */}
-        <div className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2 pointer-events-auto bg-white/5 border border-white/10 px-8 py-3 rounded-full backdrop-blur-md shadow-lg">
+        <div className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2 pointer-events-auto">
           {[
             { name: 'Services', icon: Layers },
             { name: 'About', icon: User },
@@ -73,7 +73,7 @@ const Navbar = () => {
           >
             Start Your Project
           </Link>
-          
+
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -110,7 +110,7 @@ const Navbar = () => {
             <Link
               to="/start"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-brand-primary text-black px-6 py-3 rounded-xl text-lg font-bold text-center"
+              className="bg-brand-primary text-black px-6 py-3 rounded-xl text-lg font-sans font-semibold text-center"
             >
               Start Your Project
             </Link>
@@ -140,23 +140,23 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-8xl font-display font-bold leading-[1.1] tracking-tight mb-10 mt-20">
+          <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] tracking-tight mb-10 mt-20">
             Making Your Brand <br />
             <span className="text-brand-primary">Visible, Valuable, and Viral</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 font-sans font-semibold leading-relaxed">
             WE&You helps businesses grow by building strong digital visibility. We combine digital marketing, creative storytelling, and modern technology to help brands reach the right audience, increase awareness, and drive measurable online growth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               to="/start"
-              className="bg-brand-primary text-black px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform flex items-center gap-2 group"
+              className="bg-brand-primary text-black px-8 py-3 rounded-full text-sm font-bold font-sans font-semibold hover:scale-105 transition-transform flex items-center gap-2 group"
             >
               Start Your Project
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a href="#services" className="bg-white/5 border border-white/10 hover:border-brand-primary/50 backdrop-blur-xl px-8 py-3 rounded-full text-sm font-medium transition-all">
+            <a href="#services" className="bg-white/5 border border-white/10 hover:border-brand-primary/50 backdrop-blur-xl px-8 py-3 rounded-full text-sm font-medium font-sans font-semibold transition-all">
               Explore Services
             </a>
           </div>
@@ -212,7 +212,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">
               Helping Businesses Build a <span className="text-brand-primary">Strong Presence.</span>
             </h2>
-            <p className="text-lg text-white/60 mb-10 leading-relaxed">
+            <p className="text-lg text-white/60 mb-10 font-sans font-semibold leading-relaxed">
               WE&You is a creative digital agency focused on helping businesses build a strong presence in the online world. By combining marketing strategy, innovative technology, and creative storytelling, we help brands connect with their audience and stand out in the competitive digital landscape.
             </p>
 
@@ -221,7 +221,7 @@ const About = () => {
               {industries.map((ind, i) => (
                 <div key={i} className="flex items-center gap-3 p-4 glass rounded-xl hover:border-brand-primary/50 transition-colors group">
                   <div className="text-brand-primary group-hover:scale-110 transition-transform">{ind.icon}</div>
-                  <span className="text-sm font-medium">{ind.label}</span>
+                  <span className="text-sm font-sans font-semibold">{ind.label}</span>
                 </div>
               ))}
             </div>
@@ -241,9 +241,9 @@ const Mission = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-4">Our Mission</div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold max-w-4xl mx-auto leading-tight">
-            Empowering businesses to succeed online through <span className="text-brand-primary">strategic marketing</span>, innovative technology, and powerful creative content.
+          <div className="text-4xl md:text-5xl font-display font-bold text-brand-primary uppercase tracking-widest mb-4">Our Mission</div>
+          <h2 className="text-3xl md:text-4xl font-display font-normal max-w-4xl mx-auto leading-tight">
+            Empowering businesses to succeed online through <span className="text-brand-primary font-display font-bold text-4xl md:text-4xl align-middle inline-block px-2">strategic marketing</span>, innovative technology, and powerful creative content.
           </h2>
         </motion.div>
       </div>
@@ -350,9 +350,9 @@ const Services = () => {
               </div>
               <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-2">{service.category}</div>
               <h3 className="text-2xl font-display font-bold mb-4">{service.title}</h3>
-              <p className="text-white/60 leading-relaxed">{service.description}</p>
+              <p className="text-white/60 font-sans font-semibold leading-relaxed">{service.description}</p>
 
-              <div className="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer">
+              <div className="mt-8 pt-6 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer">
                 Learn More <ArrowRight className="w-4 h-4" />
               </div>
             </motion.div>
@@ -395,7 +395,7 @@ const Process = () => {
                 </div>
                 <div className="lg:text-center">
                   <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{step.description}</p>
+                  <p className="text-white/60 font-sans font-semibold leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -419,7 +419,7 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Why Choose <span className="text-brand-primary">WE&You.</span></h2>
-          <p className="text-white/60 max-w-2xl mx-auto">We combine creativity with proven marketing strategies to deliver real business results.</p>
+          <p className="text-white/60 font-sans font-semibold max-w-2xl mx-auto">We combine creativity with proven marketing strategies to deliver real business results.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((f, i) => (
@@ -432,7 +432,7 @@ const WhyChooseUs = () => {
                 {f.icon}
               </div>
               <h3 className="text-xl font-display font-bold mb-4">{f.title}</h3>
-              <p className="text-sm text-white/60 leading-relaxed">{f.desc}</p>
+              <p className="text-sm text-white/60 font-sans font-semibold leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -473,11 +473,11 @@ const SocialProof = () => {
             <img
               src="/CREW.png"
               alt="WE&YOU Team"
-              className="w-12 h-12 rounded-full object-cover bg-brand-dark/10 p-1"
+              className="w-16 h-16 rounded-full object-cover bg-brand-dark/10 p-1"
             />
             <div className="text-left">
               {/* <div className="font-bold"></div> */}
-              <div className="text-lg opacity-60">#Incredible13</div>
+              <div className="text-lg opacity-100">#Incredible13</div>
             </div>
           </div>
         </div>
@@ -575,7 +575,7 @@ const StartProject = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto"
+            className="text-white/60 text-lg md:text-xl font-sans font-semibold max-w-2xl mx-auto"
           >
             Turn your idea into a powerful digital solution. Our team guides you from concept to launch.
           </motion.p>
@@ -595,7 +595,7 @@ const StartProject = () => {
                 {step.icon}
               </div>
               <h3 className="text-lg font-display font-bold mb-3">{step.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+              <p className="text-sm text-white/40 font-sans font-semibold leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -614,18 +614,18 @@ const StartProject = () => {
                   data-cal-link="weandyoumarketing/joinus"
                   data-cal-namespace="discoverycall"
                   data-cal-config='{"layout":"month_view"}'
-                  className="bg-brand-primary text-black px-12 py-6 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-[0_20px_40px_rgba(209,224,19,0.2)] flex items-center gap-3 group"
+                  className="bg-brand-primary font-display font-medium text-black px-12 py-6 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-[0_20px_40px_rgba(209,224,19,0.2)] flex items-center gap-3 group"
                 >
                   Book Free Consultation
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              <div className="flex flex-wrap  justify-center gap-8 md:gap-12">
                 {trustElements.map((text, i) => (
                   <div key={i} className="flex items-center gap-3 text-white/60">
                     <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0" />
-                    <span className="text-sm font-medium uppercase tracking-wider">{text}</span>
+                    <span className="text-sm font-sans font-semibold uppercase tracking-wider">{text}</span>
                   </div>
                 ))}
               </div>
@@ -635,7 +635,7 @@ const StartProject = () => {
               <div className="text-left">
                 <div className="text-sm font-bold uppercase tracking-widest text-brand-primary mb-1">Quick Contact</div>
                 <div className="text-2xl font-display font-bold">Chat with an expert</div>
-                <p className="text-white/40 text-sm mt-2">Get answers to your questions instantly.</p>
+                <p className="text-white/40 text-sm mt-2 font-sans font-semibold">Get answers to your questions instantly.</p>
               </div>
               <button className="w-20 h-20 bg-brand-primary text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg group">
                 <MessageSquare className="w-8 h-8 group-hover:scale-110 transition-transform" />
@@ -687,7 +687,7 @@ const FAQSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/40 text-lg max-w-lg mx-auto"
+            className="text-white/40 text-lg max-w-lg mx-auto font-sans font-semibold"
           >
             Everything you need to know about working with us. These are common questions from our clients.
           </motion.p>
@@ -707,7 +707,7 @@ const FAQSection = () => {
                   }`}>
                   {openIndex === i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
-                <span className={`text-lg font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
+                <span className={`text-lg font-sans font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
                   {faq.question}
                 </span>
               </button>
@@ -726,7 +726,7 @@ const FAQSection = () => {
                         initial={{ y: -20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white/5 p-8 rounded-[2.5rem] rounded-tl-none text-white/60 leading-relaxed border border-white/5"
+                        className="bg-white/5 p-8 rounded-[2.5rem] font-sans font-semibold rounded-tl-none text-white/60 leading-relaxed border border-white/5"
                       >
                         {faq.answer}
                       </motion.div>
@@ -748,11 +748,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
           <div>
-            <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
+            <h2 className="text-5xl md:text-5xl font-display font-bold mb-8 leading-tight">
               Let’s Build Your <br />
               <span className="text-brand-primary">Brand Together</span>
             </h2>
-            <p className="text-white/60 mb-8 text-lg">Ready to grow your business online? Connect with WE&You today.</p>
+            <p className="text-white/60 mb-8 font-sans font-semibold text-lg">Ready to grow your business online? Connect with WE&You today.</p>
             <Link
               to="/start"
               className="bg-brand-primary text-black px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform inline-block"
@@ -761,7 +761,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-12">
+          <div className="grid sm:grid-cols-2 font-sans font-semibold gap-12">
             <div>
               <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Contact</h4>
               <div className="space-y-4 text-sm">
@@ -773,7 +773,7 @@ const Footer = () => {
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Follow Us</h4>
+              <h4 className="text-sm font-bold uppercase font-sans font-semibold tracking-widest text-white/40 mb-6">Follow Us</h4>
               <div className="flex gap-4">
                 {[
                   { Icon: Instagram, link: 'https://www.instagram.com/weandyou.marketing?igsh=MXJ2YW9nYzJ0ZWE4NA%3D%3D&utm_source=qr' },
@@ -791,7 +791,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-              <div className="mt-4 text-white/60 text-sm">#Incredible13</div>
+              <div className="mt-4 text-white/60 font-sans font-semibold text-sm">#Incredible13</div>
             </div>
           </div>
         </div>
@@ -802,7 +802,7 @@ const Footer = () => {
           </Link>
 
           <div className="flex flex-col items-center md:items-end gap-4">
-            <div className="text-sm text-white/40">Get digital growth tips in your inbox.</div>
+            <div className="text-sm text-white/40 font-sans font-semibold">Get digital growth tips in your inbox.</div>
             <div className="flex gap-2">
               <input
                 type="email"
@@ -816,7 +816,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center text-xs text-white/20">
+        <div className="mt-12 text-center text-xs font-sans font-semibold text-white/20">
           © {new Date().getFullYear()} WE&You Digital Agency. All rights reserved.
         </div>
       </div>
