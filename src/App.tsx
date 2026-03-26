@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform, useInView, useSpring } from 'motion/react';
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Rocket, Briefcase, ShoppingCart, MapPin, User, Settings,
@@ -318,9 +318,9 @@ const Mission = () => {
 
           {/* Right Side - Scrolling Text List */}
           <div className="w-full lg:w-9/12 border-t border-white/10 lg:border-t-0 mt-6 md:mt-0 relative h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
-            <motion.div 
-               style={{ y: listY }}
-               className="w-full absolute top-[30%] lg:top-[35%] flex flex-col"
+            <motion.div
+              style={{ y: listY }}
+              className="w-full absolute top-[30%] lg:top-[35%] flex flex-col"
             >
               {missionItems.map((item, index) => (
                 <MissionItem
@@ -341,6 +341,27 @@ const Mission = () => {
 };
 
 const Services = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [layout, setLayout] = useState({ itemWidth: 200, gap: 30 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 600) {
+        setLayout({ itemWidth: 320, gap: 16 });
+      } else {
+        setLayout({ itemWidth: 300, gap: 30 });
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const services: Service[] = [
     {
       id: '1',
@@ -413,42 +434,59 @@ const Services = () => {
     }
   };
 
+  const totalDistance = (services.length - 1) * (layout.itemWidth + layout.gap);
+  const rawX = useTransform(scrollYProgress, [0, 1], [0, -totalDistance]);
+  // Apply spring for smooth scrolling
+  const x = useSpring(rawX, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section id="services" className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
-          <p className="text-white/60 max-w-2xl mx-auto">Tailored digital services designed to scale your impact and build your legacy.</p>
-        </div>
+    <div id="services" style={{ height: 'auto', overflow: 'visible' }}>
+      <section className="h-[20vh] md:h-[50vh] flex flex-col justify-end items-center text-center pb-10">
+        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
+        <p className="text-white/60 max-w-2xl mx-auto px-6 font-sans font-semibold">Tailored digital services designed to scale your impact and build your legacy.</p>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-8 glass rounded-3xl overflow-hidden hover:border-brand-primary/50 transition-all duration-500"
-            >
-              <div className="absolute top-0 right-0 p-6 text-white/5 group-hover:text-brand-primary/10 transition-colors">
-                {getIcon(service.icon)}
-              </div>
-              <div className="text-brand-primary mb-6 group-hover:scale-110 transition-transform origin-left">
-                {getIcon(service.icon)}
-              </div>
-              <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-2">{service.category}</div>
-              <h3 className="text-2xl font-display font-bold mb-4">{service.title}</h3>
-              <p className="text-white/60 font-sans font-semibold leading-relaxed">{service.description}</p>
+      <div ref={containerRef} className="h-[500vh] relative">
+        <div
+          className="sticky top-0 h-[100vh] mx-auto flex items-center justify-start overflow-visible left-1/2 -translate-x-1/2"
+          style={{ width: layout.itemWidth }}
+        >
+          <motion.div
+            className="flex will-change-transform pt-10"
+            style={{ x, gap: layout.gap }}
+          >
+            {services.map((service, i) => (
+              <div
+                key={service.id}
+                className="shrink-0 relative glass rounded-3xl overflow-hidden group hover:border-brand-primary/50 transition-all duration-500"
+                style={{ width: layout.itemWidth, height: 400 }}
+              >
+                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                <div className="p-6 h-full flex flex-col">
+                  <div className="absolute top-0 right-0 p-5 text-white/5 group-hover:text-brand-primary/10 transition-colors">
+                    {getIcon(service.icon)}
+                  </div>
+                  <div className="text-brand-primary mb-4 group-hover:scale-110 transition-transform origin-left">
+                    {getIcon(service.icon)}
+                  </div>
+                  <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-1">{service.category}</div>
+                  <h3 className="text-xl font-display font-bold mb-3">{service.title}</h3>
+                  <p className="text-sm text-white/60 font-sans font-semibold leading-relaxed line-clamp-4">{service.description}</p>
 
-              <div className="mt-8 pt-6 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer">
-                Learn More <ArrowRight className="w-4 h-4" />
+                  <div className="mt-auto pt-4 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer w-max">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -919,9 +957,10 @@ const LandingPage = () => {
       <Hero />
       <About />
       <Mission />
-      <Services />
+
       <Process />
       <WhyChooseUs />
+      <Services />
       <SocialProof />
       <FAQSection />
     </>
