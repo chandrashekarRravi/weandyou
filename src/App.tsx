@@ -130,9 +130,9 @@ const Navbar = () => {
             Start Your Project
           </Link>
 
-          <DotsMorphButton 
-            isOpen={isMobileMenuOpen} 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+          <DotsMorphButton
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           />
         </div>
       </div>
@@ -178,6 +178,40 @@ const Navbar = () => {
   );
 };
 
+const RotatingBadge = () => {
+  return (
+    <div className="absolute top-24 right-4 md:top-32 md:right-16 lg:right-40 z-30 group flex items-center justify-center p-4">
+      <div className="relative w-40 h-40 md:w-40 md:h-40 cursor-pointer flex items-center justify-center">
+        {/* Rotating Text SVG */}
+        <div
+          className="absolute inset-0 w-full h-full text-white/50 group-hover:text-brand-primary transition-colors duration-500 animate-[spin_12s_linear_infinite]"
+        >
+          <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+            <path id="circlePath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none" />
+            <text className=" text-[11px] font-bold font-sans tracking-[0.24em]" fill="currentColor">
+              <textPath href="#circlePath" startOffset="0%">
+                Incredible13 • Incredible13 • Incredible13 • Incredible13 •
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        {/* Hover Image Reveal */}
+        <div className="absolute inset-0 m-auto w-[65%] h-[65%] rounded-full overflow-hidden scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] origin-center shadow-2xl">
+          <img
+            src="/CREW.png"
+            alt="Portfolio Reveal"
+            className="w-full h-full object-cover rounded-full"
+          />
+        </div>
+
+        {/* Center dot (disappears on hover) */}
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-primary group-hover:scale-0 transition-transform duration-500" />
+      </div>
+    </div>
+  );
+};
+
 const Hero = () => {
   return (
     <section className="relative min-h-[120vh] flex flex-col items-center pt-32 overflow-hidden">
@@ -189,6 +223,8 @@ const Hero = () => {
         <div className="hero-glow" />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brand-dark via-transparent to-brand-dark" />
       </div>
+
+      <RotatingBadge />
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 relative z-20 text-center mb-10">
@@ -505,13 +541,13 @@ const Services = () => {
     <div id="services" style={{ height: 'auto', overflowX: 'clip' }}>
       <div ref={containerRef} className="h-[500vh] relative">
         <div className="sticky top-0 h-[100vh] w-full flex flex-col justify-center overflow-visible pt-16 md:pt-0">
-          
+
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 md:mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
             <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto px-6 font-sans font-semibold">Tailored digital services designed to scale your impact and build your legacy.</p>
           </div>
 
-          <div 
+          <div
             className="mx-auto flex justify-start overflow-visible"
             style={{ width: layout.itemWidth }}
           >
@@ -519,31 +555,31 @@ const Services = () => {
               className="flex will-change-transform"
               style={{ x, gap: layout.gap }}
             >
-            {services.map((service, i) => (
-              <div
-                key={service.id}
-                className="shrink-0 relative glass rounded-3xl overflow-hidden group hover:border-brand-primary/50 transition-all duration-500"
-                style={{ width: layout.itemWidth, height: 'min(400px, 65vh)' }}
-              >
-                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
-                <div className="p-5 md:p-6 h-full flex flex-col overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 md:p-5 text-white/5 group-hover:text-brand-primary/10 transition-colors">
-                    {getIcon(service.icon)}
-                  </div>
-                  <div className="text-brand-primary mb-3 md:mb-4 group-hover:scale-110 transition-transform origin-left">
-                    {getIcon(service.icon)}
-                  </div>
-                  <div className="text-[10px] md:text-xs font-bold text-brand-primary uppercase tracking-widest mb-1">{service.category}</div>
-                  <h3 className="text-lg md:text-xl font-display font-bold mb-2 md:mb-3">{service.title}</h3>
-                  <p className="text-xs md:text-sm text-white/60 font-sans font-semibold leading-relaxed line-clamp-3 md:line-clamp-4">{service.description}</p>
+              {services.map((service, i) => (
+                <div
+                  key={service.id}
+                  className="shrink-0 relative glass rounded-3xl overflow-hidden group hover:border-brand-primary/50 transition-all duration-500"
+                  style={{ width: layout.itemWidth, height: 'min(400px, 65vh)' }}
+                >
+                  <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                  <div className="p-5 md:p-6 h-full flex flex-col overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 md:p-5 text-white/5 group-hover:text-brand-primary/10 transition-colors">
+                      {getIcon(service.icon)}
+                    </div>
+                    <div className="text-brand-primary mb-3 md:mb-4 group-hover:scale-110 transition-transform origin-left">
+                      {getIcon(service.icon)}
+                    </div>
+                    <div className="text-[10px] md:text-xs font-bold text-brand-primary uppercase tracking-widest mb-1">{service.category}</div>
+                    <h3 className="text-lg md:text-xl font-display font-bold mb-2 md:mb-3">{service.title}</h3>
+                    <p className="text-xs md:text-sm text-white/60 font-sans font-semibold leading-relaxed line-clamp-3 md:line-clamp-4">{service.description}</p>
 
-                  <div className="mt-auto pt-3 md:pt-4 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-xs md:text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer w-max">
-                    Learn More <ArrowRight className="w-4 h-4" />
+                    <div className="mt-auto pt-3 md:pt-4 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-xs md:text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer w-max">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
