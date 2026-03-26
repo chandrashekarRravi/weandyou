@@ -12,6 +12,62 @@ import { Service, Achievement, Testimonial, FAQ, ProcessStep } from './types';
 
 // --- Components ---
 
+const DotsMorphButton = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
+  const springConfig = {
+    type: "spring",
+    stiffness: 200,
+    damping: 25,
+    mass: 1.0
+  };
+
+  return (
+    <button
+      onClick={onClick}
+      className="md:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none text-white transition-opacity hover:opacity-80"
+      aria-label="Toggle Menu"
+    >
+      <motion.div
+        animate={isOpen ? "open" : "closed"}
+        initial={false}
+        className="relative w-6 h-6"
+      >
+        <motion.span
+          className="absolute bg-current block rounded-full origin-center"
+          variants={{
+            closed: { top: 2, left: 2, width: 8, height: 8, rotate: 0 },
+            open: { top: 11, left: -2, width: 28, height: 2, rotate: 45 }
+          }}
+          transition={springConfig}
+        />
+        <motion.span
+          className="absolute bg-current block rounded-full origin-center"
+          variants={{
+            closed: { top: 2, right: 2, width: 8, height: 8, rotate: 0 },
+            open: { top: 11, right: -2, width: 28, height: 2, rotate: -45 }
+          }}
+          transition={springConfig}
+        />
+        <motion.span
+          className="absolute bg-current block rounded-full origin-center"
+          variants={{
+            closed: { bottom: 2, left: 2, width: 8, height: 8, scale: 1, opacity: 1 },
+            open: { bottom: 2, left: 2, width: 8, height: 8, scale: 0, opacity: 0 }
+          }}
+          transition={springConfig}
+        />
+        <motion.span
+          className="absolute bg-current block rounded-full origin-center"
+          variants={{
+            closed: { bottom: 2, right: 2, width: 8, height: 8, scale: 1, opacity: 1 },
+            open: { bottom: 2, right: 2, width: 8, height: 8, scale: 0, opacity: 0 }
+          }}
+          transition={springConfig}
+        />
+      </motion.div>
+    </button>
+  );
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,9 +130,10 @@ const Navbar = () => {
             Start Your Project
           </Link>
 
-          <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
+          <DotsMorphButton 
+            isOpen={isMobileMenuOpen} 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+          />
         </div>
       </div>
 
@@ -310,7 +367,7 @@ const Mission = () => {
 
           {/* Left Side */}
           <div className="w-full lg:w-5/12 flex flex-col gap-4 lg:gap-6 lg:pr-8 pt-16 lg:pt-0">
-            <div className="text-xs sm:text-6xl font-display font-bold text-brand-primary uppercase tracking-widest hidden lg:block">Our Mission</div>
+            <div className="text-4xl md:text-6xl font-display font-bold text-brand-primary mb-2">Our Mission</div>
             <h2 className="text-xl md:text-2xl font-display font-normal max-w-4xl mx-auto leading-tight">
               Empowering businesses to succeed online through <span className="text-brand-primary font-display font-bold text-xl md:text-2xl align-middle inline-block px-2">strategic marketing</span>, innovative technology, and powerful creative content.
             </h2>
@@ -351,10 +408,11 @@ const Services = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 600) {
-        setLayout({ itemWidth: 320, gap: 16 });
+      const w = window.innerWidth;
+      if (w <= 600) {
+        setLayout({ itemWidth: Math.max(260, Math.min(320, w - 40)), gap: 16 });
       } else {
-        setLayout({ itemWidth: 300, gap: 30 });
+        setLayout({ itemWidth: Math.min(360, w - 60), gap: 30 });
       }
     };
     handleResize();
@@ -444,46 +502,49 @@ const Services = () => {
   });
 
   return (
-    <div id="services" style={{ height: 'auto', overflow: 'visible' }}>
-      <section className="h-[20vh] md:h-[50vh] flex flex-col justify-end items-center text-center pb-10">
-        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
-        <p className="text-white/60 max-w-2xl mx-auto px-6 font-sans font-semibold">Tailored digital services designed to scale your impact and build your legacy.</p>
-      </section>
-
+    <div id="services" style={{ height: 'auto', overflowX: 'clip' }}>
       <div ref={containerRef} className="h-[500vh] relative">
-        <div
-          className="sticky top-0 h-[100vh] mx-auto flex items-center justify-start overflow-visible left-1/2 -translate-x-1/2"
-          style={{ width: layout.itemWidth }}
-        >
-          <motion.div
-            className="flex will-change-transform pt-10"
-            style={{ x, gap: layout.gap }}
+        <div className="sticky top-0 h-[100vh] w-full flex flex-col justify-center overflow-visible pt-16 md:pt-0">
+          
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 md:mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
+            <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto px-6 font-sans font-semibold">Tailored digital services designed to scale your impact and build your legacy.</p>
+          </div>
+
+          <div 
+            className="mx-auto flex justify-start overflow-visible"
+            style={{ width: layout.itemWidth }}
           >
+            <motion.div
+              className="flex will-change-transform"
+              style={{ x, gap: layout.gap }}
+            >
             {services.map((service, i) => (
               <div
                 key={service.id}
                 className="shrink-0 relative glass rounded-3xl overflow-hidden group hover:border-brand-primary/50 transition-all duration-500"
-                style={{ width: layout.itemWidth, height: 400 }}
+                style={{ width: layout.itemWidth, height: 'min(400px, 65vh)' }}
               >
                 <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
-                <div className="p-6 h-full flex flex-col">
-                  <div className="absolute top-0 right-0 p-5 text-white/5 group-hover:text-brand-primary/10 transition-colors">
+                <div className="p-5 md:p-6 h-full flex flex-col overflow-hidden">
+                  <div className="absolute top-0 right-0 p-4 md:p-5 text-white/5 group-hover:text-brand-primary/10 transition-colors">
                     {getIcon(service.icon)}
                   </div>
-                  <div className="text-brand-primary mb-4 group-hover:scale-110 transition-transform origin-left">
+                  <div className="text-brand-primary mb-3 md:mb-4 group-hover:scale-110 transition-transform origin-left">
                     {getIcon(service.icon)}
                   </div>
-                  <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-1">{service.category}</div>
-                  <h3 className="text-xl font-display font-bold mb-3">{service.title}</h3>
-                  <p className="text-sm text-white/60 font-sans font-semibold leading-relaxed line-clamp-4">{service.description}</p>
+                  <div className="text-[10px] md:text-xs font-bold text-brand-primary uppercase tracking-widest mb-1">{service.category}</div>
+                  <h3 className="text-lg md:text-xl font-display font-bold mb-2 md:mb-3">{service.title}</h3>
+                  <p className="text-xs md:text-sm text-white/60 font-sans font-semibold leading-relaxed line-clamp-3 md:line-clamp-4">{service.description}</p>
 
-                  <div className="mt-auto pt-4 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer w-max">
+                  <div className="mt-auto pt-3 md:pt-4 border-t border-white/5 font-sans font-semibold flex items-center gap-2 text-xs md:text-sm font-bold group-hover:text-brand-primary transition-colors cursor-pointer w-max">
                     Learn More <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </div>
             ))}
           </motion.div>
+          </div>
         </div>
       </div>
     </div>

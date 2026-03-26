@@ -4,24 +4,28 @@
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'SF UI Display';
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-medium-58646be638f96.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'SF UI Display';
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-medium-58646be638f96.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'SF UI Display';
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-semibold-58646eddcae92.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'SF UI Display';
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-bold-58646a511e3d9.otf') format('opentype');
@@ -35,24 +39,28 @@
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Nova Klasse';
   src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Regular-AF65f809e9ba666.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Nova Klasse';
   src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Medium-AF65f809e9af580.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Nova Klasse';
   src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Semibold-AF65f809e9ca654.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Nova Klasse';
   src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Bold-AF65f809e9906fd.otf') format('opentype');
