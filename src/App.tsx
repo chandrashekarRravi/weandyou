@@ -1112,7 +1112,7 @@ const NotFound = () => {
           <div className="absolute inset-0 pointer-events-none opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
           
           <div className="relative z-10 w-full flex-grow flex flex-col md:flex-row items-center justify-center md:items-center md:justify-between py-16 md:py-20 px-4 md:px-0 gap-10">
-            <h1 className="text-6xl sm:text-7xl md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-display font-medium tracking-tight leading-[1.0] text-center md:text-left text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-medium tracking-tight leading-[1.0] text-center md:text-left text-white">
               Not<br className="block md:hidden"/> Found!
             </h1>
             
