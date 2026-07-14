@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, Transition } from 'motion/react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { Layers, User, BarChart3, MessageSquare } from 'lucide-react';
 
 const DotsMorphButton = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
-  const springConfig = {
-    type: "spring" as const,
+  const springConfig: Transition = {
+    type: "spring",
     stiffness: 200,
     damping: 25,
     mass: 1.0
