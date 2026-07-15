@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, Transition } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { Layers, User, BarChart3, MessageSquare } from 'lucide-react';
 
@@ -86,7 +87,14 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative w-full">
         {/* Logo Output Left */}
         <Link href="/" className="flex items-center -ml-2 -my-12 md:-ml-4 md:-my-19 z-10">
-          <img src="/WE&YOU-LOGO.png" alt="WE&YOU" className="w-[140px] md:w-[200px] h-auto object-contain max-w-none" />
+          <Image 
+            src="/WE&YOU-LOGO.png" 
+            alt="WE&YOU Marketing Logo" 
+            width={200}
+            height={40}
+            className="w-[140px] md:w-[200px] h-auto object-contain max-w-none" 
+            priority
+          />
         </Link>
 
         {/* Nav Links Centered (Icon Hover Effect) */}

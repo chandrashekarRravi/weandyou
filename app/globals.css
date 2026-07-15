@@ -147,3 +147,8 @@
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import {
   Rocket, Briefcase, ShoppingCart, MapPin, User, Settings,
 } from 'lucide-react';
@@ -27,11 +28,12 @@ export const About = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-                alt="Our Team"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                alt="WE & YOU Marketing collaborative team meeting"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass p-8 rounded-2xl hidden md:block">

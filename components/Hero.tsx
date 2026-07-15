@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const RotatingBadge = () => {
@@ -25,10 +26,11 @@ const RotatingBadge = () => {
 
         {/* Hover Image Reveal */}
         <div className="absolute inset-0 m-auto w-[65%] h-[65%] rounded-full overflow-hidden scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] origin-center shadow-2xl">
-          <img
+          <Image
             src="/CREW.png"
-            alt="Portfolio Reveal"
-            className="w-full h-full object-cover rounded-full"
+            alt="WE & YOU Marketing creative team portfolio"
+            fill
+            className="object-cover rounded-full"
           />
         </div>
 
@@ -41,7 +43,7 @@ const RotatingBadge = () => {
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[120vh] flex flex-col items-center pt-32 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center pt-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="grid-perspective">
@@ -83,7 +85,55 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Dashboard Preview Element */}
+      {/* Trusted Clients Marquee */}
+      <motion.div
+        className="relative z-20 w-full mt-8 pb-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-white/30 mb-6">
+          Trusted by businesses across India
+        </p>
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          {(() => {
+            const clients = [
+              { name: 'Googli Goli Soda', logo: '/clients/googli-goli-soda.png' },
+              { name: 'Roopa Travels', logo: '/clients/roopa-travels.png' },
+              { name: 'Mayur Freights', logo: '/clients/mayur-freights.png' },
+              { name: 'MILGAN Foods', logo: '/clients/milgan.png' },
+              { name: 'Gandharva Abroad Studies', logo: '/clients/gandharva.png' },
+              { name: 'Madhu Jewellery', logo: '/clients/madhu-jewellery.png' },
+              { name: 'Samyam Textiles', logo: '/clients/samyam-textiles.png' },
+              { name: 'MB PU Science College', logo: '/clients/mb-pu-college.png' },
+            ];
+            const doubled = [...clients, ...clients];
+            return (
+              <div className="flex items-center animate-[marquee_35s_linear_infinite] w-max py-2">
+                {doubled.map((client, i) => (
+                  <div key={i} className="flex items-center flex-shrink-0">
+                    <div className="flex items-center h-10 gap-2 px-6 mx-3 rounded-full border border-white/8 bg-white/3 hover:border-brand-primary/30 hover:bg-white/5 transition-all duration-300 group">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        width={100}
+                        height={32}
+
+                        className="h-6 w-auto object-contain opacity-40 group-hover:opacity-80 transition-opacity grayscale group-hover:grayscale-0 hidden [&[src]]:block"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                      <span className="text-xs font-sans font-semibold text-white/40 group-hover:text-white/70 transition-colors whitespace-nowrap tracking-wide">
+                        {client.name}
+                      </span>
+                    </div>
+                    <div className="w-px h-3 bg-white/10 flex-shrink-0" />
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+        </div>
+      </motion.div>
 
     </section>
   );

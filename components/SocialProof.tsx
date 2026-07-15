@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Achievement } from '@/types';
 
 export const SocialProof = () => {
@@ -32,10 +33,12 @@ export const SocialProof = () => {
             &ldquo;WE&You transformed our digital presence in 3 months. Our lead flow tripled.&rdquo;
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <img
+            <Image
               src="/CREW.png"
-              alt="WE&YOU Team"
-              className="w-16 h-16 rounded-full object-cover bg-brand-dark/10 p-1"
+              alt="WE&YOU Marketing Incredible13 team members"
+              width={64}
+              height={64}
+              className="rounded-full object-cover bg-brand-dark/10 p-1"
             />
             <div className="text-left">
               {/* <div className="font-bold"></div> */}

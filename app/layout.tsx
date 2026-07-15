@@ -26,6 +26,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: 'https://weandyoumarketing.com/',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Digital Marketing Agency in India | WE & YOU Marketing',
@@ -50,6 +53,18 @@ export default function RootLayout({
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-PWS2ZLPC');`}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "WE & YOU Marketing",
+              "url": "https://weandyoumarketing.com",
+              "logo": "https://weandyoumarketing.com/WE&YOU-LOGO.png"
+            })
+          }}
+        />
       </head>
       <body>
         <noscript>

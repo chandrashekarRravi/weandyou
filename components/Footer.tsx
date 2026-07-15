@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Twitter, AtSign } from 'lucide-react';
 
 export const Footer = () => {
@@ -60,7 +61,13 @@ export const Footer = () => {
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <Link href="/" className="flex items-center -ml-2 -my-8 md:-ml-4 md:-my-12">
-            <img src="/WE&YOU-LOGO.png" alt="WE&YOU" className="w-[160px] md:w-[220px] h-auto object-contain max-w-none" />
+            <Image 
+              src="/WE&YOU-LOGO.png" 
+              alt="WE&YOU Marketing Logo" 
+              width={220}
+              height={45}
+              className="w-[160px] md:w-[220px] h-auto object-contain max-w-none" 
+            />
           </Link>
 
           <div className="flex flex-col items-center md:items-end gap-4">

@@ -5,6 +5,7 @@ import { Process } from '@/components/Process';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { Services } from '@/components/Services';
 import { SocialProof } from '@/components/SocialProof';
+import { ClientSuccess } from '@/components/ClientSuccess';
 import { FAQSection } from '@/components/FAQSection';
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <Services />
       <SocialProof />
+
       <FAQSection />
     </>
   );
