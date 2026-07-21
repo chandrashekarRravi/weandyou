@@ -3,28 +3,43 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
-import { FAQ } from '@/types';
+
+const faqs = [
+  {
+    question: 'Which is the best digital marketing agency in Bangalore?',
+    answer: 'WE & YOU Marketing is one of the leading digital marketing agencies in Bangalore, Karnataka. We offer Social Media Marketing, Google & Meta Ads, SEO, Website Development, App Development, Software Solutions, and Branding — all delivering measurable ROI for Indian businesses.',
+  },
+  {
+    question: 'How much does digital marketing cost in India?',
+    answer: 'Our packages are designed to be affordable for small businesses and scalable for enterprises. Pricing depends on services, scope, and goals. Contact us at weandyoumarketing@gmail.com or call +91 6364893295 for a free custom quote.',
+  },
+  {
+    question: 'Do you provide website, app, and software development?',
+    answer: 'Yes. We build fast, SEO-ready business websites, e-commerce platforms, custom iOS & Android mobile apps, and full software solutions for businesses across India from startups to established enterprises.',
+  },
+  {
+    question: 'How long does SEO take to show results?',
+    answer: 'SEO typically shows measurable improvements in 3–6 months. We provide monthly ranking and traffic reports from day one so you always know exactly how your organic growth is progressing.',
+  },
+  {
+    question: 'Do you run Google Ads and Meta Ads campaigns?',
+    answer: 'Yes. We manage end-to-end Google Ads and Meta Ads (Facebook & Instagram) with precise targeting, A/B testing, and conversion tracking to maximize your ROAS and reduce cost per lead.',
+  },
+  {
+    question: 'Do you serve businesses outside Bangalore and Karnataka?',
+    answer: 'Yes. We work with clients across all major Indian cities — Mumbai, Delhi, Hyderabad, Chennai, Pune, and every city in Karnataka. We operate fully remote and deliver results nationally.',
+  },
+  {
+    question: 'Can you help a small business or startup?',
+    answer: 'Absolutely. We specialize in helping startups and small businesses build a strong digital presence with strategies tailored to their budget and growth stage from social media setup to full-scale digital campaigns.',
+  },
+  {
+    question: 'What industries do you work with?',
+    answer: 'We work with travel, food & beverage, education, jewellery, textiles, logistics, real estate, healthcare, technology, and more — both B2B and B2C brands across India.',
+  },
+];
 
 export const FAQSection = () => {
-  const faqs: FAQ[] = [
-    {
-      question: 'Do you work with startups?',
-      answer: 'Yes, we help startups build strong digital presence and marketing strategies.'
-    },
-    {
-      question: 'Do you provide website development?',
-      answer: 'Yes, we design and develop modern business websites and apps.'
-    },
-    {
-      question: 'How long does a marketing campaign take?',
-      answer: 'Campaign timelines depend on goals, strategy, and platform.'
-    },
-    {
-      question: 'Do you provide ongoing support?',
-      answer: 'Yes, we provide continuous marketing, optimization, and technical support.'
-    }
-  ];
-
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -46,7 +61,7 @@ export const FAQSection = () => {
             transition={{ delay: 0.1 }}
             className="text-white/40 text-lg max-w-lg mx-auto font-sans font-semibold"
           >
-            Everything you need to know about working with us. These are common questions from our clients.
+            Everything you need to know about working with us.
           </motion.p>
         </div>
 
@@ -60,8 +75,7 @@ export const FAQSection = () => {
                   : 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/10'
                   }`}
               >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === i ? 'bg-brand-primary text-black rotate-180' : 'bg-white/5 text-white/40'
-                  }`}>
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === i ? 'bg-brand-primary text-black rotate-180' : 'bg-white/5 text-white/40'}`}>
                   {openIndex === i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
                 <span className={`text-lg font-sans font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
