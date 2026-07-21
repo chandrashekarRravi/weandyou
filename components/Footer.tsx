@@ -61,12 +61,12 @@ export const Footer = () => {
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <Link href="/" className="flex items-center -ml-2 -my-8 md:-ml-4 md:-my-12">
-            <Image 
-              src="/WE&YOU-LOGO.png" 
-              alt="WE&YOU Marketing Logo" 
+            <Image
+              src="/WE&YOU-LOGO.png"
+              alt="WE&YOU Marketing Logo"
               width={220}
               height={45}
-              className="w-[160px] md:w-[220px] h-auto object-contain max-w-none" 
+              className="w-[160px] md:w-[220px] h-auto object-contain max-w-none"
             />
           </Link>
 

@@ -16,8 +16,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
-      { url: '/favicon-192x192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/16x16.svg', type: 'image/svg+xml', sizes: '16x16' },
+      { url: '/favicon-32x32.svg', type: 'image/svg+xml', sizes: '32x32' },
+      { url: '/48x48.svg', type: 'image/svg+xml', sizes: '48x48' },
+      { url: '/favicon-192x192.svg', type: 'image/svg+xml', sizes: '192x192' },
     ],
     apple: '/apple-touch-icon.png',
   },
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'WE & YOU Marketing',
     images: [
       {
-        url: 'https://weandyoumarketing.com/og-image.png',
+        url: 'https://weandyoumarketing.com/og-image-1200x630.svg',
         width: 1200,
         height: 630,
       },
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     title: 'WE & YOU Marketing | Digital Marketing Agency in India',
     description:
       'Helping brands become Visible, Valuable, and Viral through Digital Marketing, Branding, Content Creation, Social Media Marketing, SEO, Performance Marketing, and Website Development.',
-    images: ['https://weandyoumarketing.com/og-image.png'],
+    images: ['https://weandyoumarketing.com/og-image-1200x630.svg'],
     site: '@weandyou',
   },
   robots: {
@@ -121,7 +123,7 @@ export default function RootLayout({
                   "name": "WE & YOU Marketing",
                   "url": "https://weandyoumarketing.com",
                   "logo": "https://weandyoumarketing.com/WE&YOU-LOGO.png",
-                  "image": "https://weandyoumarketing.com/og-image.png",
+                  "image": "https://weandyoumarketing.com/og-image-1200x630.svg",
                   "description": "Helping brands become Visible, Valuable, and Viral through Digital Marketing, Branding, Content Creation, Social Media Marketing, SEO, Performance Marketing, and Website Development.",
                   "telephone": "+91-0000000000",
                   "address": {
