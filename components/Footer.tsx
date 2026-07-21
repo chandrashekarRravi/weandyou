@@ -29,8 +29,7 @@ export const Footer = () => {
               <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">Contact</h4>
               <div className="space-y-4 text-sm">
                 <a href="mailto:info@weandyoumarketing.com" className="block hover:text-brand-primary transition-colors">info@weandyoumarketing.com</a>
-                <a href="tel:+916364944289" className="block hover:text-brand-primary transition-colors">+91 6364944289</a>
-                <a href="tel:+916364944290" className="block hover:text-brand-primary transition-colors">+91 6364944290</a>
+                <a href="tel:+916364893295" className="block hover:text-brand-primary transition-colors">+91 6364893295</a>
 
                 {/* <p className="text-white/60">www.weandyoumarketing.com</p> */}
               </div>
