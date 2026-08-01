@@ -1,22 +1,10 @@
-@font-face {
-  font-family: 'SF UI Display';
-  src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-light-58646b33e0551.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-
+/* ─── SF UI Display (sans) — only the 3 actually-used weights ─── */
 @font-face {
   font-family: 'SF UI Display';
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-medium-58646be638f96.otf') format('opentype');
-  font-weight: 400;
+  font-weight: 300 500;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'SF UI Display';
-  src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-medium-58646be638f96.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +12,7 @@
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-semibold-58646eddcae92.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,49 +20,110 @@
   src: url('/fonts/sf-ui-display-cufonfonts/sf-ui-display-bold-58646a511e3d9.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
+/* ─── Nova Klasse (display) — variable font covers all weights ─── */
 @font-face {
   font-family: 'Nova Klasse';
-  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Light-AF65f809e9a46d2.otf') format('opentype');
-  font-weight: 300;
+  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Vf-AF65f809e9da1c6.ttf') format('truetype');
+  font-weight: 300 700;
   font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-  font-family: 'Nova Klasse';
-  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Regular-AF65f809e9ba666.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nova Klasse';
-  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Medium-AF65f809e9af580.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nova Klasse';
-  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Semibold-AF65f809e9ca654.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nova Klasse';
-  src: url('/fonts/nova-klasse-font-family/Nova-Klasse-Bold-AF65f809e9906fd.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
+/* ─── Dirtyline36 (special / decorative) ─── */
 @font-face {
   font-family: 'Dirtyline36';
   src: url('/fonts/Dirtyline36Daysoftype2022/woff/Dirtyline%2036daysoftype%202022.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "SF UI Display", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Nova Klasse", sans-serif;
+  --font-special: "Dirtyline36", sans-serif;
+
+  --color-brand-primary: #D1E013;
+  /* NeonZing */
+  --color-brand-dark: #113d67;
+  /* BlueForge */
+  --color-white: #EEEEE9;
+  /* SoftAsh */
+  --color-black: #135DA2;
+  /* Map black text to BlueForge */
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-white font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+.grid-perspective {
+  perspective: 1000px;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.grid-lines {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image:
+    linear-gradient(to right, rgba(209, 224, 19, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(209, 224, 19, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: rotateX(60deg) translateY(-100px);
+  will-change: transform;
+  mask-image: radial-gradient(circle at 50% 50%, #135DA2, transparent 80%);
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 50%, rgba(209, 224, 19, 0.2) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  will-change: transform;
+}
+
 
 @import "tailwindcss";
 
@@ -151,4 +201,8 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  will-change: transform;
 }

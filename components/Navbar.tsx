@@ -92,8 +92,10 @@ export const Navbar = () => {
             alt="WE&YOU Marketing Logo" 
             width={200}
             height={40}
+            sizes="(max-width: 768px) 140px, 200px"
             className="w-[140px] md:w-[200px] h-auto object-contain max-w-none" 
             priority
+            fetchPriority="high"
           />
         </Link>
 

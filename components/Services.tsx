@@ -32,62 +32,14 @@ export const Services = () => {
   }, []);
 
   const services: Service[] = [
-    {
-      id: '1',
-      category: 'Digital Marketing',
-      title: 'Social Media Management',
-      description: 'We build and manage your brand\'s full social media presence across Instagram, Facebook, LinkedIn, and YouTube. From content calendars and reel production to community engagement and analytics, we craft strategies that grow your following and turn followers into paying customers.',
-      icon: 'layers'
-    },
-    {
-      id: '2',
-      category: 'Paid Ads & SEO',
-      title: 'Paid Advertising',
-      description: 'Stop wasting ad spend. Our certified team builds ROI-first Google Ads and Meta Ads campaigns with precise audience targeting, conversion tracking, and weekly optimization. We manage every rupee to maximize leads, sales, and measurable growth for your business.',
-      icon: 'bar-chart'
-    },
-    {
-      id: '3',
-      category: 'Creative Content Studio',
-      title: 'Photo & Video Production',
-      description: 'First impressions happen in milliseconds. Our in-house creative team produces high-quality brand photography, product shoots, and short-form video content including reels and ad creatives that stop the scroll, communicate your value, and build lasting brand credibility.',
-      icon: 'camera'
-    },
-    {
-      id: '4',
-      category: 'Creative Content Studio',
-      title: 'Creative Content Production',
-      description: 'Great content is the engine of every successful brand. We produce scroll-stopping graphics, advertising scripts, reel concepts, carousels, and social media campaigns crafted around your brand voice to consistently attract and engage your ideal audience.',
-      icon: 'message'
-    },
-    {
-      id: '5',
-      category: 'Website & App Development',
-      title: 'Website Development',
-      description: 'Your website is your most powerful sales tool. We design and develop fast, responsive, and SEO-optimized business websites and e-commerce platforms that convert visitors into customers — built with modern technology and a premium user experience that sets you apart.',
-      icon: 'globe'
-    },
-    {
-      id: '6',
-      category: 'Website & App Development',
-      title: 'App Development',
-      description: 'Turn your business idea into a powerful mobile experience. We build custom iOS and Android applications with secure, scalable architecture, intuitive UX design, and seamless backend integration — along with ongoing maintenance and performance optimization.',
-      icon: 'code'
-    },
-    {
-      id: '7',
-      category: 'Influence & Reach',
-      title: 'Influencer Marketing',
-      description: 'Reach new audiences through trusted voices. We identify and connect you with the right creators — nano, micro, and macro — who genuinely align with your brand. Our team handles end-to-end campaign management, content briefing, and performance reporting.',
-      icon: 'user'
-    },
-    {
-      id: '8',
-      category: 'Paid Ads & SEO',
-      title: 'SEO Optimization',
-      description: 'Rank higher, attract better traffic, and grow organically. We conduct thorough SEO audits, keyword research, and on-page optimization across your entire site. Combined with technical SEO and content strategy, we help your business get found by the right people at the right time.',
-      icon: 'bar-chart'
-    }
+    { id: 'social-media-management', category: 'Digital Marketing', title: 'Social Media Management', description: 'We build and manage your brand\'s full social media presence across Instagram, Facebook, LinkedIn, and YouTube. From content calendars and reel production to community engagement and analytics, we craft strategies that grow your following and turn followers into paying customers.', icon: 'layers' },
+    { id: 'paid-advertising', category: 'Paid Ads & SEO', title: 'Paid Advertising', description: 'Stop wasting ad spend. Our certified team builds ROI-first Google Ads and Meta Ads campaigns with precise audience targeting, conversion tracking, and weekly optimization. We manage every rupee to maximize leads, sales, and measurable growth for your business.', icon: 'bar-chart' },
+    { id: 'photo-video-production', category: 'Creative Content Studio', title: 'Photo & Video Production', description: 'First impressions happen in milliseconds. Our in-house creative team produces high-quality brand photography, product shoots, and short-form video content including reels and ad creatives that stop the scroll, communicate your value, and build lasting brand credibility.', icon: 'camera' },
+    { id: 'content-production', category: 'Creative Content Studio', title: 'Creative Content Production', description: 'Great content is the engine of every successful brand. We produce scroll-stopping graphics, advertising scripts, reel concepts, carousels, and social media campaigns crafted around your brand voice to consistently attract and engage your ideal audience.', icon: 'message' },
+    { id: 'website-development', category: 'Website & App Development', title: 'Website Development', description: 'Your website is your most powerful sales tool. We design and develop fast, responsive, SEO-optimized business websites, e-commerce platforms, and custom web software — built to convert visitors into customers and set your brand apart.', icon: 'globe' },
+    { id: 'app-development', category: 'Website & App Development', title: 'App Development', description: 'Turn your business idea into a mobile product. We build custom iOS and Android applications and bespoke software solutions with scalable architecture, intuitive UX, and seamless backend integration — plus ongoing maintenance included.', icon: 'code' },
+    { id: 'influencer-marketing', category: 'Influence & Reach', title: 'Influencer Marketing', description: 'Reach new audiences through trusted voices. We identify and connect you with the right creators — nano, micro, and macro — who genuinely align with your brand. Our team handles end-to-end campaign management, content briefing, and performance reporting.', icon: 'user' },
+    { id: 'seo-optimization', category: 'Paid Ads & SEO', title: 'SEO Optimization', description: 'Rank higher, attract better traffic, and grow organically. We conduct thorough SEO audits, keyword research, and on-page optimization across your entire site. Combined with technical SEO and content strategy, we help your business get found by the right people at the right time.', icon: 'bar-chart' },
   ];
 
   const getIcon = (icon: string) => {

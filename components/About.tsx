@@ -33,6 +33,7 @@ export const About = () => {
                 alt="WE & YOU Marketing collaborative team meeting"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>

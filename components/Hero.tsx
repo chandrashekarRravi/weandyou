@@ -30,6 +30,8 @@ const RotatingBadge = () => {
             src="/CREW.png"
             alt="WE & YOU Marketing creative team portfolio"
             fill
+            sizes="104px"
+            loading="lazy"
             className="object-cover rounded-full"
           />
         </div>
@@ -109,7 +111,7 @@ export const Hero = () => {
             ];
             const doubled = [...clients, ...clients];
             return (
-              <div className="flex items-center animate-[marquee_35s_linear_infinite] w-max py-2">
+              <div className="flex items-center animate-[marquee_35s_linear_infinite] marquee-track w-max py-2">
                 {doubled.map((client, i) => (
                   <div key={i} className="flex items-center flex-shrink-0">
                     <div className="flex items-center h-10 gap-2 px-6 mx-3 rounded-full border border-white/8 bg-white/3 hover:border-brand-primary/30 hover:bg-white/5 transition-all duration-300 group">
@@ -118,7 +120,8 @@ export const Hero = () => {
                         alt={client.name}
                         width={100}
                         height={32}
-
+                        sizes="100px"
+                        loading="lazy"
                         className="h-6 w-auto object-contain opacity-40 group-hover:opacity-80 transition-opacity grayscale group-hover:grayscale-0 hidden [&[src]]:block"
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />

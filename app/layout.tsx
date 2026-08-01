@@ -35,12 +35,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/16x16.svg', type: 'image/svg+xml', sizes: '16x16' },
-      { url: '/favicon-32x32.svg', type: 'image/svg+xml', sizes: '32x32' },
-      { url: '/48x48.svg', type: 'image/svg+xml', sizes: '48x48' },
-      { url: '/favicon-192x192.svg', type: 'image/svg+xml', sizes: '192x192' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+      { url: '/favicon-192x192.png', type: 'image/png', sizes: '192x192' },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: '/favicon-192x192.png',
   },
   openGraph: {
     title: 'WE & YOU Marketing | Best Digital Marketing Agency in Bangalore, India',
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
       'ROI-driven digital marketing agency in India. Social Media, SEO, Google Ads, Website & App Development, Branding, and Content for growing businesses.',
     url: `${BASE_URL}/`,
     siteName: 'WE & YOU Marketing',
-    images: [{ url: `${BASE_URL}/og-image-1200x630.svg`, width: 1200, height: 630 }],
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: 'WE & YOU Marketing' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     title: 'WE & YOU Marketing | Best Digital Marketing Agency in Bangalore, India',
     description:
       'ROI-driven digital marketing agency in India. Social Media, SEO, Google Ads, Website & App Development, Branding, and Content for growing businesses.',
-    images: [`${BASE_URL}/og-image-1200x630.svg`],
+    images: [`${BASE_URL}/og-image.png`],
     site: '@weandyou',
   },
   robots: {
@@ -214,7 +215,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <Script id="gtm" strategy="afterInteractive">
+        {/* Preconnect to GTM to reduce TBT */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        {/* Preload critical fonts to eliminate render-blocking */}
+        <link
+          rel="preload"
+          href="/fonts/nova-klasse-font-family/Nova-Klasse-Vf-AF65f809e9da1c6.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/sf-ui-display-cufonfonts/sf-ui-display-semibold-58646eddcae92.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        {/* GTM — lazyOnload so it doesn't block main thread */}
+        <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

@@ -38,18 +38,19 @@ export const Footer = () => {
               <h4 className="text-sm font-bold uppercase font-sans font-semibold tracking-widest text-white/40 mb-6">Follow Us</h4>
               <div className="flex gap-4">
                 {[
-                  { Icon: Instagram, link: 'https://www.instagram.com/weandyou.marketing?igsh=MXJ2YW9nYzJ0ZWE4NA%3D%3D&utm_source=qr' },
-                  { Icon: AtSign, link: 'https://www.threads.com/@weandyou.marketing?igshid=NTc4MTIwNjQ2YQ==' },
-                  { Icon: Twitter, link: 'https://x.com/weyoumarketing?s=21' }
-                ].map(({ Icon, link }, i) => (
+                  { Icon: Instagram, link: 'https://www.instagram.com/weandyou.marketing?igsh=MXJ2YW9nYzJ0ZWE4NA%3D%3D&utm_source=qr', label: 'Follow us on Instagram' },
+                  { Icon: AtSign, link: 'https://www.threads.com/@weandyou.marketing?igshid=NTc4MTIwNjQ2YQ==', label: 'Follow us on Threads' },
+                  { Icon: Twitter, link: 'https://x.com/weyoumarketing?s=21', label: 'Follow us on X (Twitter)' }
+                ].map(({ Icon, link, label }, i) => (
                   <a
                     key={i}
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={label}
                     className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-brand-primary hover:text-black transition-all"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-5 h-5" aria-hidden="true" />
                   </a>
                 ))}
               </div>
@@ -65,6 +66,8 @@ export const Footer = () => {
               alt="WE&YOU Marketing Logo"
               width={220}
               height={45}
+              sizes="(max-width: 768px) 160px, 220px"
+              loading="lazy"
               className="w-[160px] md:w-[220px] h-auto object-contain max-w-none"
             />
           </Link>
