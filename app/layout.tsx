@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollToHash } from '@/components/ScrollToHash';
 import { ScrollHomeButton } from '@/components/ScrollHomeButton';
+import { LeadChatWidget } from '@/components/LeadChatWidget';
 import './globals.css';
 
 const BASE_URL = 'https://weandyoumarketing.com';
@@ -245,6 +246,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <ScrollToHash />
           <ScrollHomeButton />
+          <LeadChatWidget />
           {children}
           <Footer />
         </div>
