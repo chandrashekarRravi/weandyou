@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "aff7049938d0b917ef22a858e00dc080",
-    "previewModeSigningKey": "1b850c41930fa8f291c0d45178c985992095bd8c357838520f8f3a38c3a49ea1",
-    "previewModeEncryptionKey": "2467204d91f7f9351350358dba858402943d79cf961b5a2860d519e5903a3b36"
-  }
-}
+{"version":4,"routes":{"/solutions/social-media-management":{},"/solutions/paid-advertising":{},"/solutions/photo-video-production":{},"/solutions/content-production":{},"/solutions/website-development":{},"/solutions/app-development":{},"/solutions/influencer-marketing":{},"/solutions/seo-optimization":{}},"dynamicRoutes":{"/solutions/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/solutions/[slug]","routeRegex":"^\\/solutions\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"f9e3857e93dbfc76b08ce3ff15c1a995","previewModeSigningKey":"0b92bc8e555735fca6eb8a9a2422a1f02ca3be3fb885ff316c7093ba095c765a","previewModeEncryptionKey":"9a14e889e37b4d392f6763051432a45ce13e44c682da046b100041947a916b17"}}

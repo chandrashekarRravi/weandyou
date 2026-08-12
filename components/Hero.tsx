@@ -108,6 +108,7 @@ export const Hero = () => {
               { name: 'Madhu Jewellery', logo: '/clients/madhu-jewellery.png' },
               { name: 'Samyam Textiles', logo: '/clients/samyam-textiles.png' },
               { name: 'MB PU Science College', logo: '/clients/mb-pu-college.png' },
+              { name: 'Parvatha Global Ventures', logo: '/clients/parvathaglobalventures.png' },
             ];
             const doubled = [...clients, ...clients];
             return (

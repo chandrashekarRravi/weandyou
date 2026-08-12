@@ -38,6 +38,8 @@ export const SocialProof = () => {
               alt="WE&YOU Marketing Incredible13 team members"
               width={64}
               height={64}
+              sizes="64px"
+              loading="lazy"
               className="rounded-full object-cover bg-brand-dark/10 p-1"
             />
             <div className="text-left">
