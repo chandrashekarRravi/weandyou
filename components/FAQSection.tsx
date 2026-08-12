@@ -50,7 +50,7 @@ export const FAQSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight"
+            className="text-2xl md:text-5xl font-display font-bold mb-6 tracking-tight"
           >
             Frequently Asked <span className="text-brand-primary">Questions</span>
           </motion.h2>
@@ -59,7 +59,7 @@ export const FAQSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/40 text-lg max-w-lg mx-auto font-sans font-semibold"
+            className="text-white/40 text-sm md:text-base max-w-lg mx-auto font-sans font-semibold"
           >
             Everything you need to know about working with us.
           </motion.p>
@@ -78,7 +78,7 @@ export const FAQSection = () => {
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === i ? 'bg-brand-primary text-black rotate-180' : 'bg-white/5 text-white/40'}`}>
                   {openIndex === i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
-                <span className={`text-lg font-sans font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
+                <span className={`text-sm md:text-base font-sans font-semibold transition-colors duration-300 ${openIndex === i ? 'text-white' : 'text-white/70'}`}>
                   {faq.question}
                 </span>
               </button>

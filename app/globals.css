@@ -206,3 +206,15 @@
 .marquee-track {
   will-change: transform;
 }
+
+/* ─── Hero entrance (replaces motion.div opacity:0 — LCP fix) ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Below-fold sections: defer rendering work ─── */
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}

@@ -45,7 +45,7 @@ const MissionItem: React.FC<{ title: string; index: number; progress: any; total
           <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 -rotate-45" />
         </motion.div>
         <motion.div style={{ x }} className="pl-8 sm:pl-10 lg:pl-12 flex items-center">
-          <motion.span style={{ color }} className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl font-display font-medium whitespace-nowrap">
+          <motion.span style={{ color }} className="text-base md:text-xl lg:text-2xl xl:text-3xl font-display font-medium whitespace-nowrap">
             {title}
           </motion.span>
         </motion.div>
@@ -82,9 +82,9 @@ export const Mission = () => {
 
           {/* Left Side */}
           <div className="w-full lg:w-5/12 flex flex-col gap-4 lg:gap-6 lg:pr-8 pt-16 lg:pt-0">
-            <div className="text-4xl md:text-6xl font-display font-bold text-brand-primary mb-2">Our Mission</div>
-            <h2 className="text-xl md:text-2xl font-display font-normal max-w-4xl mx-auto leading-tight">
-              Empowering businesses to succeed online through <span className="text-brand-primary font-display font-bold text-xl md:text-2xl align-middle inline-block px-2">strategic marketing</span>, innovative technology, and powerful creative content.
+            <div className="text-2xl md:text-5xl font-display font-bold text-brand-primary mb-2">Our Mission</div>
+            <h2 className="text-sm md:text-2xl font-display font-normal max-w-4xl mx-auto leading-tight">
+              Empowering businesses to succeed online through <span className="text-brand-primary font-display font-bold text-sm md:text-2xl align-middle inline-block px-2">strategic marketing</span>, innovative technology, and powerful creative content.
             </h2>
           </div>
 

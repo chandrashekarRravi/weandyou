@@ -70,7 +70,7 @@ export const Services = () => {
         <div className="sticky top-0 h-[100vh] w-full flex flex-col justify-center overflow-visible pt-16 md:pt-0">
 
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 md:mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
+            <h2 className="text-2xl md:text-6xl font-display font-bold mb-4 md:mb-6">Our <span className="text-brand-primary">Solutions.</span></h2>
             <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto px-6 font-sans font-semibold">Tailored digital services designed to scale your impact and build your legacy.</p>
           </div>
 

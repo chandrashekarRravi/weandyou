@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollToHash } from '@/components/ScrollToHash';
+import { ScrollHomeButton } from '@/components/ScrollHomeButton';
 import './globals.css';
 
 const BASE_URL = 'https://weandyoumarketing.com';
@@ -215,24 +216,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to GTM to reduce TBT */}
+        {/* Preconnect to GTM */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        {/* Preload critical fonts to eliminate render-blocking */}
-        <link
-          rel="preload"
-          href="/fonts/nova-klasse-font-family/Nova-Klasse-Vf-AF65f809e9da1c6.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/sf-ui-display-cufonfonts/sf-ui-display-semibold-58646eddcae92.otf"
-          as="font"
-          type="font/otf"
-          crossOrigin="anonymous"
-        />
         {/* GTM — lazyOnload so it doesn't block main thread */}
         <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -258,6 +244,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="selection:bg-brand-primary selection:text-black">
           <Navbar />
           <ScrollToHash />
+          <ScrollHomeButton />
           {children}
           <Footer />
         </div>

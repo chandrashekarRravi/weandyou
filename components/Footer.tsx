@@ -11,14 +11,14 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
           <div>
-            <h2 className="text-5xl md:text-5xl font-display font-bold mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 leading-tight">
               Let&apos;s Build Your <br />
               <span className="text-brand-primary">Brand Together</span>
             </h2>
-            <p className="text-white/60 mb-8 font-sans font-semibold text-lg">Ready to grow your business online? Connect with WE&You today.</p>
+            <p className="text-white/60 mb-8 font-sans font-semibold text-sm md:text-base">Ready to grow your business online? Connect with WE&You today.</p>
             <Link
               href="/start"
-              className="bg-brand-primary text-black px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform inline-block"
+              className="bg-brand-primary text-black px-10 py-5 rounded-full text-base md:text-xl font-bold hover:scale-105 transition-transform inline-block"
             >
               Start Your Project
             </Link>

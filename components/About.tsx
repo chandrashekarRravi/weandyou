@@ -29,7 +29,7 @@ export const About = () => {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                src="/team.jpg"
                 alt="WE & YOU Marketing collaborative team meeting"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -49,14 +49,14 @@ export const About = () => {
             viewport={{ once: true }}
           >
             <div className="text-xs font-bold text-brand-primary uppercase tracking-widest mb-4">Who We Are</div>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">
+            <h2 className="text-2xl md:text-5xl font-display font-bold mb-8 leading-tight">
               Helping Businesses Build a <span className="text-brand-primary">Strong Presence.</span>
             </h2>
-            <p className="text-lg text-white/60 mb-10 font-sans font-semibold leading-relaxed">
+            <p className="text-sm md:text-base text-white/60 mb-10 font-sans font-semibold leading-relaxed">
               WE&You is a creative digital agency focused on helping businesses build a strong presence in the online world. By combining marketing strategy, innovative technology, and creative storytelling, we help brands connect with their audience and stand out in the competitive digital landscape.
             </p>
 
-            <h3 className="text-xl font-display font-bold mb-6 uppercase tracking-wider text-white/40">Industries We Work With</h3>
+            <h3 className="text-sm md:text-xl font-display font-bold mb-6 uppercase tracking-wider text-white/40">Industries We Work With</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {industries.map((ind, i) => (
                 <div key={i} className="flex items-center gap-3 p-4 glass rounded-xl hover:border-brand-primary/50 transition-colors group">

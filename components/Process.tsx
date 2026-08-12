@@ -15,7 +15,7 @@ export const Process = () => {
   return (
     <section id="process" className="py-24 bg-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-display font-bold mb-16 text-center">Our <span className="text-brand-primary">Process.</span></h2>
+        <h2 className="text-2xl md:text-6xl font-display font-bold mb-16 text-center">Our <span className="text-brand-primary">Process.</span></h2>
 
         <div className="relative">
           {/* Timeline Line */}
@@ -35,7 +35,7 @@ export const Process = () => {
                   {step.number}
                 </div>
                 <div className="lg:text-center">
-                  <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
+                  <h3 className="text-base md:text-2xl font-display font-bold mb-4">{step.title}</h3>
                   <p className="text-white/60 font-sans font-semibold leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>

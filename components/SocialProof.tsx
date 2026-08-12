@@ -29,7 +29,7 @@ export const SocialProof = () => {
         </div> */}
 
         <div className="mt-6 max-w-4xl mx-auto">
-          <div className="text-center italic text-2xl md:text-3xl font-display font-medium leading-relaxed">
+          <div className="text-center italic text-lg md:text-3xl font-display font-medium leading-relaxed">
             &ldquo;WE&You transformed our digital presence in 3 months. Our lead flow tripled.&rdquo;
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
@@ -44,7 +44,7 @@ export const SocialProof = () => {
             />
             <div className="text-left">
               {/* <div className="font-bold"></div> */}
-              <div className="text-lg opacity-100">#Incredible13</div>
+              <div className="text-sm md:text-lg opacity-100">#Incredible13</div>
             </div>
           </div>
         </div>
