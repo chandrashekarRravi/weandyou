@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { ScrollToHash } from '@/components/ScrollToHash';
 import { ScrollHomeButton } from '@/components/ScrollHomeButton';
 import { LeadChatWidget } from '@/components/LeadChatWidget';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 const BASE_URL = 'https://weandyoumarketing.com';
@@ -248,6 +249,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollHomeButton />
           <LeadChatWidget />
           {children}
+          <SpeedInsights />
           <Footer />
         </div>
       </body>

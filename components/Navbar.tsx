@@ -5,7 +5,7 @@ import { motion, AnimatePresence, Transition } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
-import { Layers, User, BarChart3, MessageSquare } from 'lucide-react';
+import { Layers, User, BarChart3, MessageSquare, BookOpen } from 'lucide-react';
 
 const DotsMorphButton = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
   const springConfig: Transition = {
@@ -123,6 +123,21 @@ export const Navbar = () => {
               </div>
             </a>
           ))}
+
+          {/* Blog — direct page link */}
+          <Link
+            href="/blog"
+            className="group flex items-center px-2 py-2 text-white/60 hover:text-brand-primary transition-colors duration-300"
+          >
+            <BookOpen className="w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+            <div className="grid grid-cols-[0fr] group-hover:grid-cols-[1fr] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]">
+              <div className="overflow-hidden">
+                <span className="pl-2 block whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm font-bold tracking-wide">
+                  Blog
+                </span>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Action Button & Mobile Nav Right */}
@@ -168,6 +183,17 @@ export const Navbar = () => {
                 {name}
               </a>
             ))}
+
+            {/* Blog */}
+            <Link
+              href="/blog"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-3 text-lg font-medium text-white/80 hover:text-brand-primary transition-colors"
+            >
+              <BookOpen className="w-5 h-5" />
+              Blog
+            </Link>
+
             <Link
               href="/start"
               onClick={() => setIsMobileMenuOpen(false)}

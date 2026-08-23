@@ -16,25 +16,40 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/api/log-chat/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/log-chat/route.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/api/chat/route": [
+    "/blog/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/api/chat/route.js"
+      "static/chunks/app/blog/page.js"
     ],
-    "/solutions/[slug]/page": [
+    "/blog/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/solutions/[slug]/page.js"
+      "static/chunks/app/blog/[slug]/page.js"
     ],
-    "/api/log-chat/route": [
+    "/industries/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/api/log-chat/route.js"
+      "static/chunks/app/industries/[slug]/page.js"
+    ],
+    "/start/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/start/page.js"
+    ],
+    "/blog/category/[category]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/category/[category]/page.js"
     ]
   }
 }
