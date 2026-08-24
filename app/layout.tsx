@@ -15,6 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: 'WE & YOU Marketing | Best Digital Marketing Agency in Bangalore, India',
   description:
     'WE & YOU Marketing is a ROI-driven digital marketing agency in Bangalore, India. We offer Social Media Marketing, Google & Meta Ads, SEO, Website & App Development, Branding, and Content Production to help Indian businesses grow online.',
@@ -55,9 +56,6 @@ export const metadata: Metadata = {
     images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: 'WE & YOU Marketing' }],
     locale: 'en_IN',
     type: 'website',
-  },
-  alternates: {
-    canonical: BASE_URL,
   },
   twitter: {
     card: 'summary_large_image',

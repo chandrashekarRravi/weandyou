@@ -1,0 +1,16 @@
+{
+  "/api/chat/route": "/api/chat",
+  "/api/log-chat/route": "/api/log-chat",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/_not-found/page": "/_not-found",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/page": "/",
+  "/industries/[slug]/page": "/industries/[slug]",
+  "/locations/[city]/page": "/locations/[city]",
+  "/blog/page": "/blog",
+  "/solutions/[slug]/page": "/solutions/[slug]",
+  "/blog/category/[category]/page": "/blog/category/[category]",
+  "/solutions/page": "/solutions",
+  "/start/page": "/start"
+}

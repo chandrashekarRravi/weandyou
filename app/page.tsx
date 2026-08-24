@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import React, { Suspense, lazy } from 'react';
 import { Hero } from '@/components/Hero';
+
+const BASE_URL = 'https://weandyoumarketing.com';
+
+export const metadata: Metadata = {
+  alternates: { canonical: BASE_URL },
+};
 
 // Below-the-fold components — code-split to reduce initial JS bundle
 const About = lazy(() => import('@/components/About').then(m => ({ default: m.About })));

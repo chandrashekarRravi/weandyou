@@ -1,8 +1,16 @@
 {
-  "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js",
+  "/api/chat/route": "app/api/chat/route.js",
+  "/api/log-chat/route": "app/api/log-chat/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/page": "app/page.js",
   "/industries/[slug]/page": "app/industries/[slug]/page.js",
+  "/locations/[city]/page": "app/locations/[city]/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/solutions/[slug]/page": "app/solutions/[slug]/page.js",
   "/blog/category/[category]/page": "app/blog/category/[category]/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/solutions/page": "app/solutions/page.js",
+  "/start/page": "app/start/page.js"
 }

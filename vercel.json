@@ -6,6 +6,12 @@
       "has": [{ "type": "host", "value": "www.weandyoumarketing.com" }],
       "destination": "https://weandyoumarketing.com/$1",
       "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "http://weandyoumarketing.com" }],
+      "destination": "https://weandyoumarketing.com/$1",
+      "permanent": true
     }
   ],
   "headers": [
