@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /*?s=
-Disallow: /*?*s=
-Disallow: /api/
-
-Sitemap: https://weandyoumarketing.com/sitemap.xml
